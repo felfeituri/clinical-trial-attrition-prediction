@@ -21,9 +21,9 @@ We retrieved clinical study data from the **ClinicalTrials.gov API**, merged it 
 ---
 
 ## Data Sources  
-- **ClinicalTrials.gov API** – study design, participant info, outcomes  
-- **Attrition dataset** – dropout percentages for 1,325 trials  
-- **RUCA Codes** – classify ZIP codes into rural vs. urban  
+- **Primary Dataset:** Attrition dataset (`ct_attrition_dataset.csv`) containing **1325 clinical trials** with **NCT numbers and attrition percentage**.  
+- **Data Source:** [ClinicalTrials.gov API](https://clinicaltrials.gov/api/v2/studies/NCT04513925)  
+- **Additional Data:** [Rural-Urban Commuting Area (RUCA) Codes](https://depts.washington.edu/uwruca/ruca-download.php)  
 
 ---
 
@@ -34,12 +34,25 @@ We retrieved clinical study data from the **ClinicalTrials.gov API**, merged it 
 - Joined API data with attrition percentages  
 - Merged trial ZIP codes with RUCA classifications  
 
-### 2. Feature Engineering  
+## 2. Feature Engineering
 Engineered **23 features** across four categories:  
 - Participant characteristics  
 - Study design  
 - Timeline and location  
 - Serious adverse events  
+
+### Extracted from ClinicalTrials.gov API:  
+- **Study Design:** Trial setup, phases, masking information  
+- **Eligibility Criteria:** Demographics, mean age, gender ratio  
+- **Recruitment Locations:** Hospitals/organizations where patients were recruited  
+- **Therapy/Disease Information:** Drugs or treatments being studied  
+
+### Engineered Features:  
+- **Number of recruitment locations per trial**  
+- **Clinical trial duration (start to completion date)**  
+- **Trial phase (Phase 1, 2, 3, or 4)**  
+- **Serious adverse events reported**  
+- **RUCA classification (Urban vs. Rural trials)**  
 
 Applied:  
 - Median imputation  
@@ -55,19 +68,18 @@ Performance:
 - XGBoost: **R² = 0.33**, RMSE = 8.67  
 - Random Forest: **R² = 0.31**, RMSE = 8.79  
 
-Top predictors included:  
-- Trial duration  
-- Number of locations  
-- Serious adverse events  
-- Enrollment size  
+### Key Insights:  
+- **Trial Duration** was the strongest predictor of attrition.  
+- **Serious Adverse Events** increased dropout rates.  
+- **Enrollment Size** correlated with attrition (larger trials had more dropouts).  
+- **Geographic factors (locations)** impacted attrition, highlighting accessibility issues.  
 
-### 4. Geospatial Analysis  
-Developed an interactive map to visualize:  
-- Trial facility locations  
-- Urban vs. rural regions  
-- Dropout percentages  
-
-This highlighted spatial patterns in retention.
+### 4. Geospatial Analysis & Mapping Clinical Trials  
+- Extracted facility locations (latitude, longitude) using:  
+  - **ClinicalTrials.gov API**  
+  - **Zip Code Database (`pyzipcode` package)**  
+- **Mapping Tool:** `folium` for **interactive visualization**  
+- **Color-coded density map** based on attrition rates  
 
 ---
 
