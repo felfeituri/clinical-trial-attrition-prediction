@@ -86,6 +86,7 @@ clinical-trial-attrition-prediction/
 ├── presentation/
 │   └── Clinical Attrition Project 3 - HIDS 6001.pptx
 │
+├── requirements.txt
 └── README.md
 ```
 ---
