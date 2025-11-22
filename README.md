@@ -72,7 +72,7 @@ This highlighted spatial patterns in retention.
 ---
 
 ## Repository Structure  
-
+```
 clinical-trial-attrition-prediction/
 │
 ├── notebooks/
@@ -87,7 +87,7 @@ clinical-trial-attrition-prediction/
 │   └── Clinical Attrition Project 3 - HIDS 6001.pptx
 │
 └── README.md
-
+```
 ---
 
 ## How to Run  
