@@ -95,3 +95,6 @@ clinical-trial-attrition-prediction/
    ```bash
    git clone https://github.com/felfeituri/clinical-trial-attrition-prediction.git
    cd clinical-trial-attrition-prediction
+2. Run notebooks in this order:
+- FeatureEngineering_DataProcessing.ipynb
+- Model.ipynb
