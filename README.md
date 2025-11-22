@@ -95,11 +95,29 @@ clinical-trial-attrition-prediction/
    ```bash
    git clone https://github.com/felfeituri/clinical-trial-attrition-prediction.git
    cd clinical-trial-attrition-prediction
-2.Install Requirements 
+2. Install Requirements 
 ```
-pip install -r requirements.txt
+   pip install -r requirements.txt
 ```
 3. Run notebooks in this order:
 - ClinicalAttrition_FeatureEngineering_DataProcessing.ipynb
 - ClinicalAttrition_Model.ipynb
 - ClinicalAttrition_Map.ipynb
+
+---
+## Tools & Libraries
+Python
+Pandas, NumPy
+Scikit-learn
+XGBoost
+Requests (API retrieval)
+Plotly / Folium (mapping)
+Matplotlib, Seaborn
+---
+## Team
+This project was developed as a group project for Georgetown University’s
+HIDS 6001: Massive Health Data Fundamentals course.
+Team members:
+Fadwa Elfeituri
+Maxwell Lewis
+Tsegie Kassahun
