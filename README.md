@@ -95,6 +95,11 @@ clinical-trial-attrition-prediction/
    ```bash
    git clone https://github.com/felfeituri/clinical-trial-attrition-prediction.git
    cd clinical-trial-attrition-prediction
-2. Run notebooks in this order:
-- FeatureEngineering_DataProcessing.ipynb
-- Model.ipynb
+2.Install Requirements 
+```
+pip install -r requirements.txt
+```
+3. Run notebooks in this order:
+- ClinicalAttrition_FeatureEngineering_DataProcessing.ipynb
+- ClinicalAttrition_Model.ipynb
+- ClinicalAttrition_Map.ipynb
