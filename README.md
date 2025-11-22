@@ -34,20 +34,20 @@ We retrieved clinical study data from the **ClinicalTrials.gov API**, merged it 
 - Joined API data with attrition percentages  
 - Merged trial ZIP codes with RUCA classifications  
 
-## 2. Feature Engineering
+### 2. Feature Engineering
 Engineered **23 features** across four categories:  
 - Participant characteristics  
 - Study design  
 - Timeline and location  
 - Serious adverse events  
 
-### Extracted from ClinicalTrials.gov API:  
+#### Extracted from ClinicalTrials.gov API:  
 - **Study Design:** Trial setup, phases, masking information  
 - **Eligibility Criteria:** Demographics, mean age, gender ratio  
 - **Recruitment Locations:** Hospitals/organizations where patients were recruited  
 - **Therapy/Disease Information:** Drugs or treatments being studied  
 
-### Engineered Features:  
+#### Engineered Features:  
 - **Number of recruitment locations per trial**  
 - **Clinical trial duration (start to completion date)**  
 - **Trial phase (Phase 1, 2, 3, or 4)**  
@@ -64,11 +64,11 @@ Trained and compared two models:
 - **Random Forest Regressor**  
 - **XGBoost Regressor** (best performer)
 
-Performance:  
+#### Performance:  
 - XGBoost: **R² = 0.33**, RMSE = 8.67  
 - Random Forest: **R² = 0.31**, RMSE = 8.79  
 
-### Key Insights:  
+#### Key Insights:  
 - **Trial Duration** was the strongest predictor of attrition.  
 - **Serious Adverse Events** increased dropout rates.  
 - **Enrollment Size** correlated with attrition (larger trials had more dropouts).  
